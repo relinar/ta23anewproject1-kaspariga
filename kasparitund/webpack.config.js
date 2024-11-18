@@ -9,7 +9,7 @@ export default {
   },
   devServer: {
     static: {
-      directory: path.join(import.meta.dirname, 'public'),
+      directory: path.join(import.meta.dirname, "public"),
     },
     compress: true,
     port: 9000,
@@ -24,22 +24,35 @@ export default {
         test: /\.scss$/i,
         use: [
           "style-loader",
-          "css-loader", 
+          "css-loader",
           {
             loader: "sass-loader",
             options: {
               sassOptions: {
-                quietDeps: true
-              }
-            }
-          }
+                quietDeps: true,
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.njk$/,
+        use: [
+          {
+            loader: "simple-nunjucks-loader",
+            options: {},
+          },
         ],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
+      template: "./src/index.njk",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "about.html",
+      template: "./src/about.njk",
+    }),
   ],
 };

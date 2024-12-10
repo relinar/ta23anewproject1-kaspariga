@@ -8,7 +8,7 @@
     "dev": "webpack serve --mode=development",
     "build": "npx webpack --mode=production",
     "start": "npm run dev",
-    "deploy": "npm run build && surge ./dist relinar.surge.sh && start https://relinar.surge.sh/character_20.html"
+    "deploy": "npm run build && surge ./dist relinar.surge.sh && start https://relinar.surge.sh/character_22.html"
   },
   "keywords": [],
   "author": "",

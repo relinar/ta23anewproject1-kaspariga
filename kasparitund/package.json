@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "webpack --mode=development",
-    "build": "webpack --mode=production",
-    "start": "webpack server --mode=development",
-    "deploy": "npm run build && surge ./dist relinar.surge.sh"
+    "dev": "webpack serve --mode=development",
+    "build": "npx webpack --mode=production",
+    "start": "npm run dev",
+    "deploy": "npm run build && surge ./dist relinar.surge.sh && start https://relinar.surge.sh/character_20.html"
   },
   "keywords": [],
   "author": "",
@@ -19,13 +19,15 @@
     "html-webpack-plugin": "^5.6.3",
     "sass": "^1.80.6",
     "sass-loader": "^16.0.3",
+    "simple-nunjucks-loader": "^3.2.0",
     "style-loader": "^4.0.0",
-    "surge": "^0.24.6",
-    "vue": "^3.5.13",
-    "vue-loader": "^17.4.2",
-    "vue-template-compiler": "^2.7.16",
+    "surge": "^0.0.0",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
+  },
+  "dependencies": {
+    "nunjucks": "^3.2.4",
+    "uuid": "^11.0.3"
   }
 }

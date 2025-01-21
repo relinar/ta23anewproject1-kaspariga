@@ -1,40 +1,26 @@
 <script setup>
-
 import { ref } from 'vue';
-
-
-let message = ref('');
-let items = ref(['Redbull', 'Belief', 'Küpsised', 'Näts']);
-
-function addItem(){
-    if(message.value.trim() !== ''){
-        items.value.push(message.value.trim());
-    }
-    message.value = '';
-}
-
-
+ 
+ 
+let modalActive = ref(false);
+ 
 </script>
-
+ 
 <template>
-    <div class="container mt-2">
-        <div class="field has-addons">
-            <div class="control">
-                <input class="input" type="text" v-model="message" @keypress.enter="addItem">
-            </div>
-            <div class="control">
-                <button class="button is-info" @click="addItem">
-                    Add Item
-                </button>
-            </div>
+    <div class="container">
+        <section class="section">
+            <button class="button is-primary" @click="modalActive=true">Modal Activate</button>
+        </section>
+    </div>
+    <div class="modal" :class="{'is-active': modalActive}">
+        <div class="modal-background" @click="modalActive=false"></div>
+        <div class="modal-content">
+            <p class="image is-4by3">
+                <img src="https://bulma.io/assets/images/placeholders/1280x960.png" alt="">
+            </p>
         </div>
-        <div class="content">
-            <h3>All Items</h3>
-            <ul>
-                <li v-for="item in items">{{ item }}</li>
-            </ul>
-        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
     </div>
 </template>
-
+ 
 <style></style>

@@ -8,7 +8,7 @@
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production",
     "start": "webpack server --mode=development",
-    "deploy": "npm run build && surge ./dist kaspariscool.surge.sh"
+    "deploy": "npm run build && surge ./dist relinar.surge.sh"
   },
   "keywords": [],
   "author": "",

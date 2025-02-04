@@ -1,26 +1,11 @@
 <script setup>
-import { ref } from 'vue';
- 
- 
-let modalActive = ref(false);
- 
+import Tabs from './components/Tabs.vue'
+let titles = ['item1', 'item2', 'item3', 'item4'];
+
 </script>
  
 <template>
-    <div class="container">
-        <section class="section">
-            <button class="button is-primary" @click="modalActive=true">Modal Activate</button>
-        </section>
-    </div>
-    <div class="modal" :class="{'is-active': modalActive}">
-        <div class="modal-background" @click="modalActive=false"></div>
-        <div class="modal-content">
-            <p class="image is-4by3">
-                <img src="https://bulma.io/assets/images/placeholders/1280x960.png" alt="">
-            </p>
-        </div>
-        <button class="modal-close is-large" aria-label="close"></button>
-    </div>
+   <Tabs :items = "titles"></Tabs>
 </template>
  
 <style></style>

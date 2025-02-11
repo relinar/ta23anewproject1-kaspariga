@@ -1,11 +1,17 @@
 <script setup>
-import Tabs from './components/Tabs.vue'
-let titles = ['item1', 'item2', 'item3', 'item4'];
+import { ref } from 'vue';
+import Tabs from './components/Tabs.vue';
+import { RouterView } from 'vue-router';
+
+
+
 
 </script>
  
 <template>
-   <Tabs :items = "titles"></Tabs>
+   <Tabs></Tabs>
+   <RouterView></RouterView>
 </template>
  
-<style></style>
+<style>
+</style>

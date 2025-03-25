@@ -17,8 +17,8 @@ async function getCharacters() {
     try {
         let response = await axios.get('https://rickandmortyapi.com/api/character', {
             params: {
-                page:  currentPage.value,
-                name: searchValue.value
+                page: currentPage.value,
+                name: searchValue.value,
             }
         });
         console.log(response.data);

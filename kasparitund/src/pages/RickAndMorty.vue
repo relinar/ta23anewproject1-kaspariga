@@ -1,18 +1,22 @@
 <script setup>
+
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 import CharacterCard from '../components/CharacterCard.vue';
+import SimplePagination from '../components/SimplePagination.vue';
 import Pagination from '../components/Pagination.vue';
- 
+
 const characters = ref([]);
-const info = ref([]);
+const info = ref({});
 const currentPage = ref(1);
 const searchValue = ref('');
 const error = ref('');
 let searchTimeout = null;
- 
+
+
 await getCharacters('https://rickandmortyapi.com/api/character');
- 
+
+
 async function getCharacters() {
     try {
         let response = await axios.get('https://rickandmortyapi.com/api/character', {
@@ -30,41 +34,42 @@ async function getCharacters() {
         info.value = null;
     }
 }
- 
+
 async function next() {
     currentPage.value++;
     await getCharacters();
 }
- 
+
 async function prev() {
     currentPage.value--;
     await getCharacters();
 }
- 
+
 async function page(page) {
     currentPage.value = page;
     await getCharacters();
 }
- 
-async function search() {
+
+async function search(){
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(async () => {
-        error.value = '';
+        error.value='';
         currentPage.value = 1;
         characters.value = [];
         await getCharacters();
     }, 1000);
+
 }
- 
+
 onMounted(() => {
     document.addEventListener('scroll', () => {
-        if(window.scrollY + window.innerHeight > document.body.clientHeight - 300) {
+        if(window.scrollY + window.innerHeight > document.body.clientHeight - 300 ) {
             next();
         }
     })
-   
+    
 });
- 
+
 </script>
 <template>
     <div class="field has-addons">
@@ -77,7 +82,8 @@ onMounted(() => {
             </button>
         </div>
     </div>
- 
+
+   
     <div class="columns is-multiline">
         <div v-for="character in characters" class="column is-one-quarter">
             <CharacterCard :character="character"></CharacterCard>

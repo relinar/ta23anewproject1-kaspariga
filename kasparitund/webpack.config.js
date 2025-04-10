@@ -1,7 +1,6 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { VueLoaderPlugin } from 'vue-loader';
-
 export default {
   entry: "./src/index.js",
   output: {
@@ -14,7 +13,8 @@ export default {
     },
     compress: true,
     port: 9000,
-    historyApiFallback: true, 
+    historyApiFallback: true,
+    allowedHosts: "all",
   },
   module: {
     rules: [

@@ -11,6 +11,8 @@ import Chuck from './pages/Chuck.vue';
 import RickAndMorty from './pages/RickAndMorty.vue';
 import CookieClicker from './pages/CookieClicker.vue';
 import WebApis from './pages/WebApis.vue';
+import WebApis from './pages/WebApis.vue';
+
 
 const routes = [
   { path: '/', component: ToDo, name: 'ToDo' },
@@ -21,6 +23,7 @@ const routes = [
   { path: '/WebApis', component: WebApis, name: 'WebApis' },
 
 
+  { path: '/webapis', component: WebApis, name: 'WebApis' },
 ]
 
 const router = createRouter({
